@@ -1,0 +1,27 @@
+extends ../layouts/layout_nav.pug
+
+block content
+  h1 Medicamentos
+  a(href='/medicamentos/new' class='btn btn-primary mb-3') Agregar nuevo medicamento
+  table(class='table table-striped table-bordered')
+    thead
+      tr
+        th Nombre
+        th Descripción
+        th Precio
+        th Stock
+        th Fecha de Vencimiento
+        th Acciones
+    tbody
+      each medicamento in medicamentos
+        tr
+          td= medicamento.nombre
+          td= medicamento.descripcion
+          td= medicamento.precio
+          td= medicamento.stock
+          td= medicamento.fechaVencimiento
+          td
+            a(href=`/medicamentos/${medicamento.id}/edit` class='btn btn-warning btn-sm') Editar
+            form(action=`/medicamentos/${medicamento.id}/delete` method='POST' style='display:inline')
+              input(type='hidden' name='_method' value='DELETE')
+              button(type='submit' class='btn btn-danger btn-sm') Eliminar

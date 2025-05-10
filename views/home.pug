@@ -1,0 +1,42 @@
+extends layouts/layout_nav.pug
+
+block content
+  .container.mt-5
+    .row.justify-content-center
+      .col-md-10
+        .card.shadow-lg.border-0
+          .card-body
+            h1.text-center.mb-4 Sistema de Gestión de Farmacia
+            p.text-center.text-muted Bienvenido al sistema donde puedes gestionar medicamentos, usuarios, ventas, compras y almacén de manera eficiente.
+
+            .row.text-center
+              
+                
+
+              .col-md-3.mb-4
+                a(href='/users' class='text-decoration-none')
+                  .card.border-success.shadow-sm.h-100
+                    .card-body
+                      i.fas.fa-user-md.fa-2x.text-success.mb-2
+                      h5 Usuarios
+
+              .col-md-3.mb-4
+                a(href='/ventas' class='text-decoration-none')
+                  .card.border-warning.shadow-sm.h-100
+                    .card-body
+                      i.fas.fa-shopping-cart.fa-2x.text-warning.mb-2
+                      h5 Ventas
+
+              .col-md-3.mb-4
+                a(href='/compras' class='text-decoration-none')
+                  .card.border-danger.shadow-sm.h-100
+                    .card-body
+                      i.fas.fa-truck.fa-2x.text-danger.mb-2
+                      h5 Compras
+
+              .col-md-3.mb-4
+                a(href='/almacen' class='text-decoration-none')
+                  .card.border-info.shadow-sm.h-100
+                    .card-body
+                      i.fas.fa-warehouse.fa-2x.text-info.mb-2
+                      h5 Almacén

@@ -1,0 +1,32 @@
+extends ../layouts/layout_nav.pug
+
+block content
+  .container.mt-5
+    .row.justify-content-center
+      .col-md-10
+        .card.shadow-lg.border-0
+          .card-body
+            h1.text-center.mb-4 Módulo de Almacén
+            p.text-center.text-muted Administra la información relacionada con los medicamentos.
+
+            .row.text-center
+              .col-md-4.mb-4
+                a(href='/especialidades' class='text-decoration-none')
+                  .card.border-secondary.shadow-sm.h-100
+                    .card-body
+                      i.fas.fa-stethoscope.fa-2x.text-secondary.mb-2
+                      h5 Especialidades
+
+              .col-md-4.mb-4
+                a(href='/tiposmedic' class='text-decoration-none')
+                  .card.border-dark.shadow-sm.h-100
+                    .card-body
+                      i.fas.fa-capsules.fa-2x.text-dark.mb-2
+                      h5 Tipos de Medicamento
+
+              .col-md-4.mb-4
+                a(href='/medicamentos' class='text-decoration-none')
+                  .card.border-primary.shadow-sm.h-100
+                    .card-body
+                      i.fas.fa-pills.fa-2x.text-primary.mb-2
+                      h5 Medicamentos

@@ -1,0 +1,29 @@
+extends ../layouts/layout_nav.pug
+
+block content
+  h1 Lista de Usuarios
+
+  a.btn.btn-primary(href="/users/new") + Nuevo Usuario
+
+  if usuarios.length
+    table.table.table-striped
+      thead
+        tr
+          th ID
+          th Nombre
+          th Email
+          th Rol
+          th Acciones
+      tbody
+        each usuario in usuarios
+          tr
+            td= usuario.CodUsuario
+            td= usuario.nombre
+            td= usuario.email
+            td= usuario.rol
+            td
+              a.btn.btn-sm.btn-warning(href=`/users/${usuario.CodUsuario}/edit`) Editar
+              form(action=`/users/${usuario.CodUsuario}/delete`, method='POST', style='display:inline')
+                button.btn.btn-sm.btn-danger(type='submit') Eliminar
+  else
+    p No hay usuarios registrados.

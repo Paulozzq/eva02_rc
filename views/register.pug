@@ -1,0 +1,25 @@
+extends layouts/layout
+
+block content
+  .row
+    .col-md-6.offset-md-3
+      h2 Registro de usuario
+
+      form(action='/register', method='POST')
+        .mb-3
+          label(for='nombre') Nombre
+          input#nombre.form-control(type='text', name='nombre', required=true)
+        .mb-3
+          label(for='email') Correo electrónico
+          input#email.form-control(type='email', name='email', required=true)
+        .mb-3
+          label(for='password') Contraseña
+          input#password.form-control(type='password', name='password', required=true)
+        .mb-3
+          label(for='confirmPassword') Confirmar contraseña
+          input#confirmPassword.form-control(type='password', name='confirmPassword', required=true)
+        .mb-3
+          button.btn.btn-primary(type='submit') Registrarse
+
+      p Ya tienes una cuenta? 
+      a(href='/login') Inicia sesión aquí

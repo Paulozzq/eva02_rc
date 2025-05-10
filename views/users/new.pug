@@ -1,0 +1,27 @@
+extends ../layouts/layout_nav.pug
+
+block content
+  h1 Crear nuevo usuario
+
+  form(action="/users" method="POST")
+    div
+      label(for="nombre") Nombre:
+      input(type="text" name="nombre" id="nombre" required)
+
+    div
+      label(for="email") Email:
+      input(type="email" name="email" id="email" required)
+
+    div
+      label(for="password") Contraseña:
+      input(type="password" name="password" id="password" required)
+
+    div
+      label(for="role") Rol:
+      select(name="role" id="role" required)
+        option(value="user") Usuario
+        option(value="admin") Administrador
+
+    button(type="submit") Crear Usuario
+
+    a(href="/users") ← Volver a la lista

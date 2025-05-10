@@ -1,0 +1,11 @@
+extends ../layouts/layout_nav.pug
+
+block content
+  .container.mt-5
+    h2 Nueva Especialidad
+    form(action='/especialidades' method='POST')
+      .mb-3
+        label.form-label(for='descripcionEsp') Descripción
+        input.form-control(type='text' name='descripcionEsp' required)
+      button.btn.btn-success(type='submit') Guardar
+      a.btn.btn-secondary(href='/especialidad') Cancelar

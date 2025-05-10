@@ -1,0 +1,64 @@
+extends ../layouts/layout_nav.pug
+
+block content
+  h1 Agregar Nuevo Medicamento
+  form(action='/medicamentos' method='POST')
+    
+    .mb-3
+      label(for='descripcionMed' class='form-label') Descripción
+      input(type='text' class='form-control' id='descripcionMed' name='descripcionMed' required)
+
+    .mb-3
+      label(for='fechaFabricacion' class='form-label') Fecha de Fabricación
+      input(type='date' class='form-control' id='fechaFabricacion' name='fechaFabricacion' required)
+
+    .mb-3
+      label(for='fechaVencimiento' class='form-label') Fecha de Vencimiento
+      input(type='date' class='form-control' id='fechaVencimiento' name='fechaVencimiento' required)
+
+    .mb-3
+      label(for='Presentacion' class='form-label') Presentación
+      input(type='text' class='form-control' id='Presentacion' name='Presentacion' required)
+
+    .mb-3
+      label(for='stock' class='form-label') Stock
+      input(type='number' class='form-control' id='stock' name='stock' required)
+
+    .mb-3
+      label(for='precioVentaUni' class='form-label') Precio Venta Unidad
+      input(type='number' class='form-control' id='precioVentaUni' name='precioVentaUni' step='0.01' required)
+
+    .mb-3
+      label(for='precioVentaPres' class='form-label') Precio Venta Presentación
+      input(type='number' class='form-control' id='precioVentaPres' name='precioVentaPres' step='0.01' required)
+
+    .mb-3
+      label(for='Marca' class='form-label') Marca
+      input(type='text' class='form-control' id='Marca' name='Marca' required)
+
+    //- Campo select para Tipo de Medicamento
+    .mb-3
+      label(for='CodTipoMed' class='form-label') Tipo de Medicamento
+      select(class='form-control' id='CodTipoMed' name='CodTipoMed' required)
+        option(value='') Selecciona un tipo
+        // Si tiposMedicamentos está vacío, no muestra opciones, solo la opción "Selecciona un tipo"
+        if tiposMedicamentos && tiposMedicamentos.length > 0
+          each tipo in tiposMedicamentos
+            option(value=tipo.CodTipoMed)= tipo.descripcion
+        else
+          option(value='') No hay tipos disponibles
+
+    //- Campo select para Especialidad
+    .mb-3
+      label(for='CodEspec' class='form-label') Especialidad
+      select(class='form-control' id='CodEspec' name='CodEspec' required)
+        option(value='') Selecciona una especialidad
+        // Si especialidades está vacío, no muestra opciones, solo la opción "Selecciona una especialidad"
+        if especialidades && especialidades.length > 0
+          each espec in especialidades
+            option(value=espec.CodEspec)= espec.descripcionEsp
+        else
+          option(value='') No hay especialidades disponibles
+
+    button(type='submit' class='btn btn-primary') Guardar
+    a(href='/medicamentos' class='btn btn-secondary ms-2') Cancelar

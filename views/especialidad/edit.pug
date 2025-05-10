@@ -1,0 +1,11 @@
+extends ../layouts/layout_nav.pug
+
+block content
+  .container.mt-5
+    h2 Editar Especialidad
+    form(action=`/especialidades/${especialidad.CodEspec}` method='POST')
+      .mb-3
+        label.form-label(for='descripcionEsp') Descripción
+        input.form-control(type='text' name='descripcionEsp' value=especialidad.descripcionEsp required)
+      button.btn.btn-primary(type='submit') Actualizar
+      a.btn.btn-secondary(href='/especialidades') Cancelar

@@ -1,0 +1,11 @@
+extends ../layouts/layout_nav.pug
+
+block content
+  .container.mt-5
+    h1 Nuevo Tipo de Medicamento
+    form(action='/tiposMedic' method='POST')
+      .mb-3
+        label.form-label(for='descripcion') Descripción
+        input.form-control(type='text', name='descripcion', required)
+      button.btn.btn-success(type='submit') Guardar
+      a.btn.btn-secondary.ms-2(href='/tiposMedic') Cancelar

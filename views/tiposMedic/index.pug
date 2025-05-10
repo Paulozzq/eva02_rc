@@ -1,0 +1,21 @@
+extends ../layouts/layout_nav.pug
+
+block content
+  .container.mt-5
+    h1 Lista de Tipos de Medicamento
+    a.btn.btn-primary.mb-3(href='/tiposMedic/new') Agregar nuevo tipo
+    table.table.table-bordered.table-hover
+      thead.table-dark
+        tr
+          th Código
+          th Descripción
+          th Acciones
+      tbody
+        each tipo in tiposMedic
+          tr
+            td= tipo.CodTipoMed
+            td= tipo.descripcion
+            td
+              a.btn.btn-sm.btn-warning(href=`/tiposMedic/${tipo.CodTipoMed}/edit`) Editar
+              form(action=`/tiposMedic/${tipo.CodTipoMed}/delete` method='POST' style='display:inline-block')
+                button.btn.btn-sm.btn-danger(type='submit') Eliminar

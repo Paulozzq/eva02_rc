@@ -1,0 +1,53 @@
+extends ../layouts/layout_nav.pug
+
+block content
+  h1 Editar Medicamento
+  form(action=`/medicamentos/${medicamento.id}` method='POST')
+    input(type='hidden' name='_method' value='PUT')
+    
+    .mb-3
+      label(for='descripcionMed' class='form-label') Descripción
+      input(type='text' class='form-control' id='descripcionMed' name='descripcionMed' value=medicamento.descripcionMed required)
+
+    .mb-3
+      label(for='fechaFabricacion' class='form-label') Fecha de Fabricación
+      input(type='date' class='form-control' id='fechaFabricacion' name='fechaFabricacion' value=medicamento.fechaFabricacion required)
+
+    .mb-3
+      label(for='fechaVencimiento' class='form-label') Fecha de Vencimiento
+      input(type='date' class='form-control' id='fechaVencimiento' name='fechaVencimiento' value=medicamento.fechaVencimiento required)
+
+    .mb-3
+      label(for='Presentacion' class='form-label') Presentación
+      input(type='text' class='form-control' id='Presentacion' name='Presentacion' value=medicamento.Presentacion required)
+
+    .mb-3
+      label(for='stock' class='form-label') Stock
+      input(type='number' class='form-control' id='stock' name='stock' value=medicamento.stock required)
+
+    .mb-3
+      label(for='precioVentaUni' class='form-label') Precio Venta Unidad
+      input(type='number' class='form-control' id='precioVentaUni' name='precioVentaUni' value=medicamento.precioVentaUni step='0.01' required)
+
+    .mb-3
+      label(for='precioVentaPres' class='form-label') Precio Venta Presentación
+      input(type='number' class='form-control' id='precioVentaPres' name='precioVentaPres' value=medicamento.precioVentaPres step='0.01' required)
+
+    .mb-3
+      label(for='Marca' class='form-label') Marca
+      input(type='text' class='form-control' id='Marca' name='Marca' value=medicamento.Marca required)
+
+    .mb-3
+      label(for='CodTipoMed' class='form-label') Tipo de Medicamento
+      select(class='form-control' id='CodTipoMed' name='CodTipoMed' required)
+        each tipo in tiposMedicamentos
+          option(value=tipo.CodTipoMed, selected=medicamento.CodTipoMed == tipo.CodTipoMed)= tipo.Nombre
+
+    .mb-3
+      label(for='CodEspec' class='form-label') Especialidad
+      select(class='form-control' id='CodEspec' name='CodEspec' required)
+        each espec in especialidades
+          option(value=espec.CodEspec, selected=medicamento.CodEspec == espec.CodEspec)= espec.Nombre
+
+    button(type='submit' class='btn btn-warning') Actualizar
+    a(href='/medicamentos' class='btn btn-secondary ms-2') Cancelar
