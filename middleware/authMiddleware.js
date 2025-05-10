@@ -6,7 +6,7 @@ async function verifyToken(req, res, next) {
   const token = req.cookies.token;
 
   if (!token) {
-    return res.status(403).send('Acceso denegado. No se proporcionó el token.');
+    return res.redirect('/login');
   }
 
   try {
