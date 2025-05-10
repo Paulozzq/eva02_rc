@@ -1,0 +1,32 @@
+extends ../layouts/layout_nav.pug
+
+block content
+  .container.mt-5
+    .row.justify-content-center
+      .col-md-10
+        .card.shadow-lg.border-0
+          .card-body
+            h1.text-center.mb-4 Módulo de Compras
+            p.text-center.text-muted Administra proveedores, órdenes y detalles de compras.
+
+            .row.text-center
+              .col-md-4.mb-4
+                a(href='#' class='text-decoration-none')
+                  .card.border-info.shadow-sm.h-100
+                    .card-body
+                      i.fas.fa-flask.fa-2x.text-info.mb-2
+                      h5 Laboratorio
+
+              .col-md-4.mb-4
+                a(href='#' class='text-decoration-none')
+                  .card.border-warning.shadow-sm.h-100
+                    .card-body
+                      i.fas.fa-file-invoice.fa-2x.text-warning.mb-2
+                      h5 Orden de Compra
+
+              .col-md-4.mb-4
+                a(href='#' class='text-decoration-none')
+                  .card.border-success.shadow-sm.h-100
+                    .card-body
+                      i.fas.fa-list-alt.fa-2x.text-success.mb-2
+                      h5 Detalle de Orden

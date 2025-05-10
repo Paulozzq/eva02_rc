@@ -41,7 +41,7 @@ router.post('/login', async (req, res) => {
     if (user && user.password === password) {
       const token = jwt.sign({ id: user.CodUsuario, email: user.email }, JWT_SECRET, { expiresIn: '1h' });
       res.cookie('token', token, { httpOnly: true });
-      res.redirect('/users');
+      res.redirect('/home');
     } else {
       res.status(401).send('Credenciales incorrectas');
     }

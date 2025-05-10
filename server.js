@@ -58,6 +58,9 @@ app.use('/especialidades', verifyToken,especialidadRoutes);
 const tipoMedicRoutes = require('./routes/tiposMedicRoutes');
 app.use('/tiposMedic',verifyToken, tipoMedicRoutes);
 
+const comprasRoutes = require('./routes/comprasRoutes');
+app.use('/compras',verifyToken, comprasRoutes);
+
 const userRoutes = require('./routes/userRoutes');
 app.use('/users', verifyToken,userRoutes);
 

@@ -8,7 +8,7 @@ html(lang="es")
     // Barra de navegación
     nav.navbar.navbar-expand-lg.navbar-light.bg-light
       .container-fluid
-        a.navbar-brand(href="/") Mi Aplicación
+        a.navbar-brand(href="/home") MiFarma
         button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarNav", aria-controls="navbarNav", aria-expanded="false", aria-label="Toggle navigation")
           span.navbar-toggler-icon
         .collapse.navbar-collapse#navbarNav
@@ -16,7 +16,7 @@ html(lang="es")
             li.nav-item
               a.nav-link(href="/home") Inicio
        
-       
+
             if user
               li.nav-item
                 a.nav-link(href="/logout") Cerrar sesión
