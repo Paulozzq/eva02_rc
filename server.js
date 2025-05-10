@@ -37,6 +37,10 @@ app.use(async (req, res, next) => {
 // Configuración del motor de vistas
 app.set('view engine', 'pug');
 
+app.get('/', (req, res) => {
+    res.redirect('/login');
+});
+
 // Rutas
 const authRoutes = require('./routes/authRoutes');
 app.use('/', authRoutes);
