@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 const Usuario = require('./models/Usuario'); // Ajusta si es necesario
 const Medicamento = require('./models/Medicamento'); // Ajusta si es necesario
 const app = express();
+const verifyToken = require('./middleware/authMiddleware'); // Asegúrate de exportar bien en el middleware
 
 // Middlewares base
 app.use(express.urlencoded({ extended: true }));
@@ -46,22 +47,22 @@ const authRoutes = require('./routes/authRoutes');
 app.use('/', authRoutes);
 
 const homeRoute = require('./routes/homeRoute');
-app.use('/home', homeRoute);
+app.use('/home', verifyToken,homeRoute);
 
 const almacenRoute = require('./routes/almacenRoutes');
-app.use('/almacen', almacenRoute);
+app.use('/almacen',verifyToken, almacenRoute);
 
 const especialidadRoutes = require('./routes/especialidadRoutes');
-app.use('/especialidades', especialidadRoutes);
+app.use('/especialidades', verifyToken,especialidadRoutes);
 
 const tipoMedicRoutes = require('./routes/tiposMedicRoutes');
-app.use('/tiposMedic', tipoMedicRoutes);
+app.use('/tiposMedic',verifyToken, tipoMedicRoutes);
 
 const userRoutes = require('./routes/userRoutes');
-app.use('/users', userRoutes);
+app.use('/users', verifyToken,userRoutes);
 
 const medicamentoRoutes = require('./routes/medicamentoRoutes');
-app.use('/medicamentos', medicamentoRoutes);
+app.use('/medicamentos',verifyToken, medicamentoRoutes);
 
 // Puerto
 const PORT = process.env.PORT || 3000;
