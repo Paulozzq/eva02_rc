@@ -29,6 +29,10 @@ router.post('/register', async (req, res) => {
   }
 });
 
+router.get('/logout', (req, res) => {
+  res.clearCookie('token'); // Elimina el token de la cookie
+  res.redirect('/login'); // Redirige al login
+});
 // Inicio de sesión
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
